@@ -1,0 +1,18 @@
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:bps="http://schema.mclayan.com/blueprism-schemas"
+  attributeFormDefault="unqualified"
+  elementFormDefault="unqualified">
+  <xs:include schemaLocation="blueprism.xsd"/>
+  <xs:simpleType name="uuid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="fontType">
+    <xs:attribute name="family" type="xs:string"/>
+    <xs:attribute name="size" type="xs:float"/>
+    <xs:attribute name="style" type="xs:string"/>
+    <xs:attribute name="color" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>

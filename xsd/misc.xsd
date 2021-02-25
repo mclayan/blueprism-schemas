@@ -1,0 +1,22 @@
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:bps="http://schema.mclayan.com/blueprism-schemas"
+  attributeFormDefault="unqualified"
+  elementFormDefault="unqualified">
+  <xs:include schemaLocation="blueprism.xsd"/>
+  <xs:complexType name="viewType">
+    <xs:sequence>
+      <xs:element name="camerax" type="xs:decimal"/>
+      <xs:element name="cameray" type="xs:decimal"/>
+      <xs:element name="zoom">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute name="version" type="xs:decimal"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

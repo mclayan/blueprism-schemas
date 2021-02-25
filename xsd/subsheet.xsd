@@ -1,0 +1,30 @@
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:bps="http://schema.mclayan.com/blueprism-schemas"
+  attributeFormDefault="unqualified"
+  elementFormDefault="unqualified">
+  <xs:include schemaLocation="blueprism.xsd"/>
+  <xs:complexType name="subsheetType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="view" type="viewType"/>
+    </xs:sequence>
+    <xs:attribute name="subsheetid" type="uuid"/>
+    <xs:attribute name="type">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CleanUp"/>
+          <xs:enumeration value="Normal"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="published">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="True"/>
+          <xs:enumeration value="False"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>
