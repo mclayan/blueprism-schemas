@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:bps="http://schema.mclayan.com/blueprism-schemas"
+  attributeFormDefault="unqualified"
+  elementFormDefault="unqualified">
+  <xs:include schemaLocation="blueprism.xsd"/>
+  <xs:complexType name="appdefType">
+    <xs:sequence>
+      <xs:element name="element">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any maxOccurs="unbounded" processContents="skip"/>
+            <!-- todo: expand -->
+          </xs:sequence>
+          <xs:attribute name="name" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:anyAttribute processContents="skip"/>
+  </xs:complexType>
+</xs:schema>

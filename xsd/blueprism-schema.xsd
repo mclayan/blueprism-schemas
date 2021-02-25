@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:bps="http://schema.mclayan.com/blueprism-schemas">
+  <xs:include schemaLocation="process.xsd"/>
+  <xs:include schemaLocation="appdef.xsd"/>
+  <xs:include schemaLocation="subsheet.xsd"/>
+  <xs:include schemaLocation="stage.xsd"/>
+  <xs:include schemaLocation="datatypes.xsd"/>
+  <xs:include schemaLocation="misc.xsd"/>
+</xs:schema>

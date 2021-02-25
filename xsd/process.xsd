@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+  vc:minVersion="1.1"
+  xmlns:bps="http://schema.mclayan.com/blueprism-schemas"
+  attributeFormDefault="unqualified"
+  elementFormDefault="unqualified">
+  <xs:include schemaLocation="blueprism.xsd"/>
+  <xs:element name="process" type="processType"/>
+  <xs:complexType name="processType">
+    <xs:all>
+      <xs:element name="appdef" type="appdefType"/>
+      <xs:element name="view" type="viewType"/>
+      <xs:element name="preconditions" type="xs:anyType"/>
+      <xs:element name="endpoint" type="xs:anyType"/>
+      <xs:element name="subsheet" type="subsheetType" maxOccurs="unbounded"/>
+      <xs:element name="stage" type="stageType" maxOccurs="unbounded"/>
+    </xs:all>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="version">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9]\.[0-9]"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="bpversion">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\d+\.\d+(\.\d+)*"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="narrative" type="xs:string"/>
+    <xs:attribute name="byrefcollection" type="xs:boolean"/>
+    <xs:attribute name="type">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="object"/>
+          <xs:enumeration value="process"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="runmode">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Exclusive"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="preferredid" type="uuid"/>
+    <xs:anyAttribute processContents="skip"/>
+  </xs:complexType>
+</xs:schema>

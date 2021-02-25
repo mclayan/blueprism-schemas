@@ -1,0 +1,45 @@
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+  vc:minVersion="1.1"
+  xmlns:bps="http://schema.mclayan.com/blueprism-schemas"
+  attributeFormDefault="unqualified"
+  elementFormDefault="unqualified">
+  <xs:include schemaLocation="blueprism.xsd"/>
+  <xs:complexType name="stageType">
+    <xs:all>
+      <xs:element name="subsheetid" type="uuid" minOccurs="0"/>
+      <xs:element name="loginhibit" type="xs:anyType" minOccurs="0"/>
+      <xs:element name="narrative" type="xs:string"/>
+      <xs:group ref="displayGroup"/>
+      <xs:element name="font" type="fontType"/>
+      <xs:element name="references" type="referencesType" minOccurs="0"/>
+      <xs:element name="imports" type="importsType" minOccurs="0"/>
+      <xs:element name="language" type="xs:string" minOccurs="0"/>
+      <xs:element name="globalcode" type="xs:string" minOccurs="0"/>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="onsuccess" type="uuid" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="stageid" type="uuid"/>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:group name="displayGroup">
+    <xs:all>
+      <xs:element name="displayx" type="xs:decimal"/>
+      <xs:element name="displayy" type="xs:decimal"/>
+      <xs:element name="displaywidth" type="xs:decimal"/>
+      <xs:element name="displayheight" type="xs:decimal"/>
+    </xs:all>
+  </xs:group>
+  <xs:complexType name="referencesType">
+    <xs:sequence>
+      <xs:element name="reference" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="importsType">
+    <xs:sequence>
+      <xs:element name="import" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
